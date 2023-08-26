@@ -140,7 +140,7 @@ const CapsuleSearch = () => {
         </form>
       </div>
 
-{searchResults && (
+{searchResults?.capsule_id?.length! > 0 && (
       <div className="flex flex-col items-start mt-10">
         <p className="block text-sm font-medium leading-6 text-gray-900 ">
           Capsule Serial: <strong>{searchResults?.capsule_serial}</strong>
