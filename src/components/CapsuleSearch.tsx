@@ -70,12 +70,14 @@ const CapsuleSearch = () => {
       );
       const data = await response.json();
       setSearchResults(data);
-
       // Handle the response data here
       console.log(data);
+      if(response.status === 404 ){
+        alert('Data not found');
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
-      alert("An error occured while fetching data")
+      alert("An error occured while fetching data");
     } finally {
       setIsLoading(false);
     }
@@ -120,7 +122,7 @@ const CapsuleSearch = () => {
                 value={searchData.searchInput}
                 onChange={handleInputChange}
                 type="text"
-                placeholder="Which Capsule would you like to know about"
+                placeholder="Try searching 'C101'"
                 autoComplete="text"
                 required
                 className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
@@ -153,10 +155,10 @@ const CapsuleSearch = () => {
           Number of Landings: <strong>{searchResults?.landings}</strong>
         </p>
         <p className="text-sm font-medium leading-6 text-gray-900 ">
-          Number of Mission Flights: <strong>{searchResults?.missions[0].flight}</strong>
+          Number of Mission Flights: <strong>{searchResults?.missions?.[0].flight}</strong>
         </p>
         <p className="text-sm font-medium leading-6 text-gray-900 ">
-          Mission Name: <strong>{searchResults?.missions[0].name}</strong>
+          Mission Name: <strong>{searchResults?.missions?.[0]?.name}</strong>
         </p>
         <p className="text-sm font-medium leading-6 text-gray-900 ">
           Capsule Status: <strong>{searchResults?.status}</strong>
