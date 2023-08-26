@@ -16,12 +16,72 @@
   }
 }
 
-body {
+body{
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+.bg-spacex {
+  background-image: url('../../public/spacepro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center -80px;
+  min-height: 100dvh;
+
+  @media (max-width: 640px) {
+    background-position: center; /* Center the background image on mobile */
+  };
+  @media (max-width: 1080px) {
+    background-position: center; /* Center the background image on mobile */
+  }
+}
+
+.btn-spacex{
+  background-color: #396BD3;
+}
+
+.form-spacex{
+  background-color: #1D294F;
+  color: #E1E1E1;
+}
+
+/* Add these styles to your CSS file */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  width: 35em;
+  min-height: 15em;
+  text-align: center;
+  background-color: white;
+  color: #212121;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  margin-top: 30px;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 6px;
+  color: white;
+  background-color: #396BD3;
+  width: 80px;
 }
